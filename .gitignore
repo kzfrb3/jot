@@ -1,0 +1,14 @@
+# Virtualenv stuffs
+.Python
+[Bb]in
+[Ii]nclude
+[Ll]ib
+[Ss]cripts
+pyvenv.cfg
+pip-selfcheck.json
+# Apple weirdness
+.DS_Store
+*.swp
+# Keep Sublime Text artifacts out of the repo; not all the team uses Sublime
+*.sublime-workspace
+*.sublime-project

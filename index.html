@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link href='http://fonts.googleapis.com/css?family=EB+Garamond' rel='stylesheet' type='text/css'>
+        <title>Jot</title>
+        <meta charset="utf-8" />
+
+<link rel="stylesheet" href="style.css">
+
+<script src="http://code.jquery.com/jquery-2.1.1.min.js"></script>
+<script type="text/javascript">
+    $(document).ready(function(){
+        $('#jotting').load('jotting.html');
+    });
+</script><!-- Load function to include jotting.html  -->
+</head>
+<body id="page" class="home">
+
+<div id="top"><!-- Put anything you want you want to come before the jotting/posting include here. -->
+    <h1>Jot</h1>
+<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla augue ex, vehicula at aliquam id, gravida non lacus. Curabitur id libero eget diam imperdiet commodo tempor porttitor.</p>
+<p>Recent Status:</p>
+
+</div><!-- end top -->
+
+
+
+<div id="jotting"></div><!--Empty div 'jotting':
+                           gets replaced w/ content of jotting.html
+                           via jQuery load (see top of page)  -->
+
+<div id="end"><!-- Any you want after the jotting section goes here.-->
+<hr>
+</div><!-- end end -->
+</body>
+</html>
