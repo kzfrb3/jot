@@ -6,9 +6,9 @@
 [Ss]cripts
 pyvenv.cfg
 pip-selfcheck.json
-# Apple weirdness
+# Apple weirdness and such
 .DS_Store
 *.swp
-# Keep Sublime Text artifacts out of the repo; not all the team uses Sublime
+# Sublime Text artifacts
 *.sublime-workspace
 *.sublime-project

@@ -2,9 +2,14 @@
 
 import os
 import codecs
-# from sh import rsync
+from sh import rsync
 import markdown
 from datetime import datetime
+
+# TODO: get these variables from a config file
+# For now, set these here for uploading
+local_path = '~/jot/'
+remote_path = 'user@somewhere.tld:~/public_html/jot/'
 
 timenow = datetime.now()
 timestamp = timenow.strftime('%Y-%m-%d %H:%M:%S')
@@ -25,9 +30,5 @@ jotting = jot_html + jotting_html
 with codecs.open('jotting.html', encoding='utf-8', mode='w') as j:
     j.write(jotting)
 
-# TODO: get these variables from a config file
-local_path = '~/Dropbox/work_src/jot/*'
-remote_path = 'tym@tilde.club:~/public_html/jot/'
-
-# rsync("-ave", "ssh", local_path, remote_path)
+rsync("-ave", "ssh", local_path, remote_path)
 
