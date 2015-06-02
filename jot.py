@@ -1,34 +1,54 @@
 #!/usr/bin/env python
+# coding: utf-8
 
 import os
 import codecs
-from sh import rsync
+import yaml
 import markdown
-from datetime import datetime
+import requests
+# from datetime import datetime
+from time import strftime
+from sh import rsync
 
-# TODO: get these variables from a config file
-# For now, set these here for uploading
-local_path = '~/jot/'
-remote_path = 'user@somewhere.tld:~/public_html/jot/'
+def main():
+    timestamp = strftime('%Y-%m-%d %H:%M:%S')
+    timestamp = '**%s** \\- ' % timestamp
 
-timenow = datetime.now()
-timestamp = timenow.strftime('%Y-%m-%d %H:%M:%S')
-timestamp = '**%s** \\- ' % timestamp
+# Read and parse configuration.
+    with open('config.yml', 'r') as config:
+        y = yaml.load(config)
+        local_path = y['local_path']
+        remote_path = y['remote_path']
+        gps_url = y['gps_url']
+        use_gps = y['use_gps']
 
-jotfile = codecs.open('_jot.md', encoding='utf-8')
-jot = jotfile.read()
-jot = timestamp + jot
-jotfile.close()
-# print jot
+    geotag = ''
 
-md = markdown.Markdown()
-jot_html = md.convert(jot)
-jotting_htmlfile = codecs.open('jotting.html', encoding='utf-8')
-jotting_html = jotting_htmlfile.read()
-jotting_htmlfile.close()
-jotting = jot_html + jotting_html
-with codecs.open('jotting.html', encoding='utf-8', mode='w') as j:
-    j.write(jotting)
+    if use_gps == True:
+        url = gps_url
+        locreq = requests.get(gps_url)
+        locdata = locreq.json()
+        lat = locdata['latitude']
+        lng = locdata['longitude']
+        geotag = u'[🌐](http://maps.google.com/maps?q=%s,%s)' % (lat,lng)
 
-rsync("-ave", "ssh", local_path, remote_path)
+    jotfile = codecs.open('_jot.md', encoding='utf-8')
+    jot = jotfile.read()
+    jot = u'%s %s%s' % (timestamp, jot, geotag)
+    jotfile.close()
 
+    md = markdown.Markdown()
+    jot_html = md.convert(jot)
+    template_htmlfile = codecs.open('template.html', encoding='utf-8')
+    template_html = template_htmlfile.read()
+    template_htmlfile.close()
+    content = template_html.replace('<!--TKTKREPLACE -->', jot_html)
+
+
+    with codecs.open('index.html', encoding='utf-8', mode='w') as j:
+        j.write(content)
+
+    rsync("-ae", "ssh", local_path, remote_path)
+
+if __name__ == '__main__':
+    main()

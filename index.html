@@ -2,35 +2,72 @@
 <html lang="en">
 <head>
     <link href='http://fonts.googleapis.com/css?family=EB+Garamond' rel='stylesheet' type='text/css'>
-        <title>Jot</title>
+        <title>~tym</title>
         <meta charset="utf-8" />
 
 <link rel="stylesheet" href="style.css">
 
-<script src="http://code.jquery.com/jquery-2.1.1.min.js"></script>
-<script type="text/javascript">
-    $(document).ready(function(){
-        $('#jotting').load('jotting.html');
-    });
-</script><!-- Load function to include jotting.html  -->
 </head>
 <body id="page" class="home">
 
-<div id="top"><!-- Put anything you want you want to come before the jotting/posting include here. -->
-    <h1>Jot</h1>
-<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla augue ex, vehicula at aliquam id, gravida non lacus. Curabitur id libero eget diam imperdiet commodo tempor porttitor.</p>
-<p>Recent Status:</p>
+<div id="top">
+
+<!-- #HEADER SECTION -->
+<!-- Put anything you want you want to come before the jotting/posting include here. -->
+
+<p class="avatar"><a href="http://tilde.club/~tym"><img src="http://tilde.club/~tym/blog/theme/image/hobo-avatar.png"></a></p>
+    <h1>Thomas Yager-Madden</h1>
+    <p><a href="http://map.what3words.com/takes.harp.expose">takes.harp.expose</a><br />
+<script type="text/javascript">
+                    //&lt;![CDATA[
+                        <!--
+                    var username = "yagermadden";
+                    var hostname = "gmail.com";
+                    var linktext = username + "@" + hostname;
+                    document.write("<a href=" + "mail" + "to:" + username +
+                    "@" + hostname + ">" + linktext + "<\/a>")//-->
+                    //]]&gt;
+</script><br>
+847-644-4582</p>
+<p>Hello, I'm Thomas</p>
+<p>Data technician in the streets, suburban dad in the sheets</p>
+<p><a href="http://tilde.club/~tym/blog">Blog</a> |
+<a href="http://twitter.com/yagermadden">Twitter</a> |
+<a href="http://mix.pabloedison.com">Tumblr</a> |
+<a href="http://quasi-pretty.tumblr.com">Art</a> |
+<a href="https://www.facebook.com/tyagermadden">Facebook</a> |
+<a href="http://yager-madden.com/tym_2014-10.vcf">vCard</a> |
+<a href="http://tilde.club/~tym/loc/whereami.html">GPS beacon</a></p>
+
 
 </div><!-- end top -->
+<!-- #END OF HEADER SECTION-->
+
+<h2><em>Recent Status:</em></h2>
 
 
-
-<div id="jotting"></div><!--Empty div 'jotting':
+<div id="jotting"><!--Empty div 'jotting':
                            gets replaced w/ content of jotting.html
-                           via jQuery load (see top of page)  -->
+                           by jot script  -->
 
-<div id="end"><!-- Any you want after the jotting section goes here.-->
-<p>Page strung together with <a href='https://github.com/yagermadden/jot'>Jot</a></p>
+
+<p><strong>2015-06-02 10:03:25</strong> -  <!-- Replace the dummy text below with whatever you want to post next -->
+This is exciting (for certain nerdy values of <em>exciting</em>). I realized that with this latest version of <a href="http://github.com/yagermadden/jot">Jot</a>, because it uses a template and a config, I can fully eat my own dog food here. I have been using a separate repo for my own stuff, and keeping a separate 'generic' version as the main Jot repo. But all I had to do was rename the generic config and template with an <code>example_</code> prefix, add the template and config I'm actually using to <code>.gitignore</code> and I can do it all from one repo. So, I expect to merge this all into latest Jot master shortly.
+<!-- Uncomment below if you don't use Whereami: Put a new query in the google maps link below; either grab your lat,long if you can, or put an address with '+' between words like 1060+W+Addison+Chicago+IL -->
+<!-- <a href="http://maps.google.com/maps?q=41.947454, -87.656134">🌐</a>--><a href="http://maps.google.com/maps?q=41.8857263253,-87.6308577053">🌐</a></p>
+
+
+</div>
+
+<div id="end">
+
+<!-- #FOOTER SECTION -->
+<!-- Anything you want after the jotting section goes here.-->
+
+<p>Page strung together with <a href='https://github.com/yagermadden/jot'>Jot</a><br>
+<a href='http://tilde.club'>tilde.club</a> is where it's at.
+</p>
 </div><!-- end end -->
+<!-- #END OF FOOTER SECTION -->
 </body>
 </html>
