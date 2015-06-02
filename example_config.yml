@@ -1,0 +1,8 @@
+# Set local and remote path for publishing below
+# Create your own gps_url with http://github.com/yagermadden/whereami
+# Or set use_gps to False and manual geotags in _jot.md
+
+local_path: ~/jot/
+remote_path: user_foo@example.com:~/public_html/jot/
+use_gps: True
+gps_url: http://example.com/~user_foo/gps.json
