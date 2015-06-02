@@ -1,15 +1,16 @@
 #Jot
 
-A dumb little script for static-generated micro-blogging, sorta. It uses a couple lines of jQuery to replace a div on a web page (`index.html`) with some HTML from another file (`jotting.html`) when the page loads. This is sort of like an 'include' file in some dynamic server-side languages, except I wanted it on the client because my site is hosted at [tilde.club](http://tilde.club) so I can't do any CGI shenanigans. 
+A little script for creating a single-page, static-generated website with a "status update" content section that can be edited and replaced easily.
 
-And there's a place to write new content in Markdown, and a Python script that converts the Markdown to HTML, adds it to the include file, and rsyncs to the server. So....
+You just write a little content in Markdown, and a Python script converts the Markdown to HTML, adds it to the template file, and rsyncs to the server. So....
+
+See it in action at [~tym](http://tilde.club/~tym/) on the [tilde.club](http://tilde.club).
 
 ## Usage
 
-- Write something in `_jot.md` and fill in the Google Maps search query at the bottom, if you wish. Note you don't need to put a time stamp at the front, as the script will take care of that.
-- Edit the `jot.py` variables `local_path` and `remote_path` to where you actually have Jot installed and where you want to upload it, respectively.
-- Edit the contents of the `index.html` file's `#top` and `#end` divs to taste. This will be like the static template stuff around your include file content.
-- At the moment, the script just keeps adding new posts to the top of the 'jotting.html' include file. There's no facility for archiving or removing old posts. You can manage that manually by cleaning up the file, or renaming it to something else, like `jotting.old` or what have you.
+- Edit the `example_config.yml` and `example_template.html` to taste, and rename (or copy) to `config.yml` and `template.html`, respectively.
+- Write something in `_jot.md`. If you are using my [Whereami](http://github.com/yagermadden/whereami), you can put your `gps.json` URL in the config and your status message will be geotagged automagically. If not, there's an example Google Maps search query at the bottom of `_jot.md` that you can fill in, if you wish. Note you don't need to put a time stamp at the front, as the script will take care of that.
+- Assuming everything is all configured and you like your template, run `jot.py` to generate and publish your page.
 
 ## Look
-I'm not saying this is super great; in fact, I acknowledge it's basically nothing. But I am enjoying using it, and maybe someone else would, too.
+Once again, this is something that scratches a personal itch in a pretty sketchy and minimal way, so no promises, eh? Also as always, forks and feedback welcome and appreciated.

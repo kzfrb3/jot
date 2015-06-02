@@ -12,3 +12,6 @@ pip-selfcheck.json
 # Sublime Text artifacts
 *.sublime-workspace
 *.sublime-project
+config.yml
+template.html
+index.html
