@@ -2,13 +2,14 @@
 # coding: utf-8
 
 import os
+import sys
 import codecs
 import yaml
 import markdown
 import requests
-# from datetime import datetime
 from time import strftime
 from sh import rsync
+from jinja2 import Environment, FileSystemLoader
 
 def main():
     timestamp = strftime('%Y-%m-%d %H:%M:%S')
@@ -32,23 +33,25 @@ def main():
         lng = locdata['longitude']
         geotag = u'[🌐](http://maps.google.com/maps?q=%s,%s)' % (lat,lng)
 
-    jotfile = codecs.open('_jot.md', encoding='utf-8')
-    jot = jotfile.read()
+    with codecs.open('_jot.md', encoding='utf-8') as jotfile:
+      jot = jotfile.read()
     jot = u'%s %s%s' % (timestamp, jot, geotag)
-    jotfile.close()
 
     md = markdown.Markdown()
     jot_html = md.convert(jot)
-    template_htmlfile = codecs.open('template.html', encoding='utf-8')
-    template_html = template_htmlfile.read()
-    template_htmlfile.close()
-    content = template_html.replace('<!--TKTKREPLACE -->', jot_html)
 
+    PWDIR = os.path.dirname(os.path.abspath(__file__))
+    j = Environment(loader=FileSystemLoader(PWDIR), trim_blocks=True)
+    content = j.get_template('template.html').render(jotting = jot_html)
 
     with codecs.open('index.html', encoding='utf-8', mode='w') as j:
         j.write(content)
-
-    rsync("-ae", "ssh", local_path, remote_path)
+    # only rsync to server if Prod arg is passed
+    if len(sys.argv) >= 2:
+      if sys.argv[1] == "Prod":
+        rsync("-ae", "ssh", local_path, remote_path)
+    else:
+      pass
 
 if __name__ == '__main__':
     main()
