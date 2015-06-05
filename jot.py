@@ -14,7 +14,6 @@ from jinja2 import Environment, FileSystemLoader
 
 def main():
 
-
 # Read and parse configuration.
     configfile = os.path.join(sys.path[0], 'config.yml')
     with open(configfile, 'r') as config:
@@ -81,18 +80,16 @@ def main():
     content = j.get_template('template.html').render(jotting = jot_html,
         timestamp = timestamp, geotag = geotag)
 
+# Write rendered content to index file
     indexsrc = os.path.join(sys.path[0], 'index.html')
     with codecs.open(indexsrc, encoding='utf-8', mode='w') as j:
         j.write(content)
-    # only rsync to server if Prod arg is passed
-    # if len(sys.argv) >= 2:
-    #   if sys.argv[1] == "Prod":
+
+# only rsync to server if Prod arg is passed
     if args.prod:
-        print 'dry run prod success'
-        # rsync("-ae", "ssh", local_path, remote_path)
+        rsync("-ae", "ssh", local_path, remote_path)
     else:
-        print 'you did not say prod'
-      # pass
+        pass
 
 if __name__ == '__main__':
     main()
