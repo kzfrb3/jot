@@ -7,6 +7,7 @@ import codecs
 import yaml
 import markdown
 import requests
+from argparse import ArgumentParser
 from time import strftime
 from sh import rsync
 from jinja2 import Environment, FileSystemLoader
@@ -23,8 +24,20 @@ def main():
         gps_url = y['gps_url']
         use_gps = y['use_gps']
 
+# Parse args
+    parser = ArgumentParser()
+    parser.add_argument(
+            '-f', '--filename', nargs = '?', default='_jot.md',
+            help='The input status update filename.'
+        )
+    parser.add_argument(
+        '--prod', action='store_true',
+        help='Set flag to publish to live site via rsync to configured remote_path'
+        )
+    args = parser.parse_args()
+
 # Read and convert jot file
-    jotsrc = os.path.join(sys.path[0], '_jot.md')
+    jotsrc = os.path.join(sys.path[0], args.filename)
     with codecs.open(jotsrc, encoding='utf-8') as jotfile:
       jot_md = jotfile.read()
     md = markdown.Markdown(['meta'])
@@ -72,11 +85,14 @@ def main():
     with codecs.open(indexsrc, encoding='utf-8', mode='w') as j:
         j.write(content)
     # only rsync to server if Prod arg is passed
-    if len(sys.argv) >= 2:
-      if sys.argv[1] == "Prod":
-        rsync("-ae", "ssh", local_path, remote_path)
+    # if len(sys.argv) >= 2:
+    #   if sys.argv[1] == "Prod":
+    if args.prod:
+        print 'dry run prod success'
+        # rsync("-ae", "ssh", local_path, remote_path)
     else:
-      pass
+        print 'you did not say prod'
+      # pass
 
 if __name__ == '__main__':
     main()
