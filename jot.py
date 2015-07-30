@@ -60,12 +60,10 @@ def main():
         locdata = locreq.json()
         lat = locdata['latitude']
         lng = locdata['longitude']
-        geotag = u'[🌐](http://maps.google.com/maps?q=%s,%s)' % (lat,lng)
-        geotag = markdown.markdown(geotag)[3:] # remove leading p tag
+        geotag = u' <a href="http://maps.google.com/maps?q=%s,%s"><i class="fa fa-map-marker"></i></a></p>' % (lat,lng)
     elif md.Meta.has_key('mapquery'):
         qs = md.Meta['mapquery'][0]
-        geotag = u'[🌐](http://maps.google.com/maps?q=%s)' % qs
-        geotag = markdown.markdown(geotag)[3:] # remove leading p tag
+        geotag = u' <a href="http://maps.google.com/maps?q=%s<i class="fa fa-map-marker"></i></a></p>' % qs
     else:
         geotag = '</p>'
 
