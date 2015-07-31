@@ -2,6 +2,7 @@
 # coding: utf-8
 
 import os
+import glob
 import sys
 import codecs
 import yaml
@@ -21,22 +22,28 @@ def main():
         local_path = y['local_path']
         remote_path = y['remote_path']
         gps_url = y['gps_url']
-        use_gps = y['use_gps']
 
 # Parse args
     parser = ArgumentParser()
     parser.add_argument(
-            '-f', '--filename', nargs = '?', default='_jot.md',
+            '-f', '--filename', nargs = '?',
             help='The input status update filename.'
         )
     parser.add_argument(
         '--prod', action='store_true',
-        help='Set flag to publish to live site via rsync to configured remote_path'
+        help=('Set flag to publish to live site via '
+            'rsync to configured remote_path')
         )
     args = parser.parse_args()
 
 # Read and convert jot file
-    jotsrc = os.path.join(sys.path[0], args.filename)
+    if args.filename:
+        jotsrc = os.path.join(sys.path[0], args.filename)
+    else:
+        draftpath = os.path.abspath(os.path.join(sys.path[0], 'draft'))
+        filen = max(os.listdir(draftpath),
+            key = lambda f: os.path.getmtime(os.path.join(draftpath, f)))
+        jotsrc = os.path.join(sys.path[0], 'draft', filen)
     with codecs.open(jotsrc, encoding='utf-8') as jotfile:
       jot_md = jotfile.read()
     md = markdown.Markdown(['meta'])
@@ -54,16 +61,18 @@ def main():
 
 
 # Set geotag from meta or Whereami (or blank)
-    if use_gps == True:
+    if md.Meta.has_key('mapquery'):
+        qs = md.Meta['mapquery'][0]
+        geotag = (u' <a href="http://maps.google.com/maps?q=%s">'
+            '<i class="fa fa-map-marker"></i></a></p>') % qs
+    elif gps_url:
         url = gps_url
         locreq = requests.get(gps_url)
         locdata = locreq.json()
         lat = locdata['latitude']
         lng = locdata['longitude']
-        geotag = u' <a href="http://maps.google.com/maps?q=%s,%s"><i class="fa fa-map-marker"></i></a></p>' % (lat,lng)
-    elif md.Meta.has_key('mapquery'):
-        qs = md.Meta['mapquery'][0]
-        geotag = u' <a href="http://maps.google.com/maps?q=%s<i class="fa fa-map-marker"></i></a></p>' % qs
+        geotag = (u' <a href="http://maps.google.com/maps?q=%s,%s">'
+            '<i class="fa fa-map-marker"></i></a></p>') % (lat,lng)
     else:
         geotag = '</p>'
 
@@ -79,12 +88,13 @@ def main():
         timestamp = timestamp, geotag = geotag)
 
 # Write rendered content to index file
-    indexsrc = os.path.join(sys.path[0], 'index.html')
+    indexsrc = os.path.join(sys.path[0], 'static', 'index.html')
     with codecs.open(indexsrc, encoding='utf-8', mode='w') as j:
         j.write(content)
 
 # only rsync to server if Prod arg is passed
     if args.prod:
+        local_path = os.path.join(local_path, 'static/')
         rsync("-ae", "ssh", local_path, remote_path)
     else:
         pass
