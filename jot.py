@@ -57,7 +57,7 @@ def main():
     else:
         timestamp = strftime('%Y-%m-%d %H:%M:%S')
         timestamp = u'**%s** \\- ' % timestamp
-    timestamp = markdown.markdown(timestamp)[:-4] # remove trailing p tag
+    timestamp = markdown.markdown(timestamp)[3:-4] # remove trailing p tag
 
 
 # Set geotag from meta or Whereami (or blank)
@@ -68,11 +68,11 @@ def main():
     elif gps_url:
         url = gps_url
         locreq = requests.get(gps_url)
-        locdata = locreq.json()
+        locdata = locreq.json()['location']
         lat = locdata['latitude']
         lng = locdata['longitude']
         geotag = (u' <a href="http://maps.google.com/maps?q=%s,%s">'
-            '<i class="fa fa-map-marker"></i></a></p>') % (lat,lng)
+            '<i class="fa fa-map-marker"></i></a>') % (lat,lng)
     else:
         geotag = '</p>'
 

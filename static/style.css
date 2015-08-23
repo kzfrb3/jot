@@ -1,11 +1,11 @@
 @charset "utf-8";
 
-@import url(http://fonts.googleapis.com/css?family=Cardo:400,400italic,700);
+@import url(http://fonts.googleapis.com/css?family=Cardo:400,400italic,700|Lato:300,400);
 
 body {
 margin:auto;
 padding: 1em;
-max-width:42em;
+max-width:36em;
 background:#ffffff;
 font: 100% 'Cardo', serif;
 font-size:1em;
@@ -18,18 +18,23 @@ color:#333333;
 }
 
 h1, h2, h3, h4, h5, h6 {
-    font-weight: bold;
+    font-weight: normal;
+    font:100% "league-gothic",sans-serif;
 }
 
 h1 {
     color: #000000;
-    font-size: 28px;
+    font-size: 24px;
 }
 
 h2 {
-    border-bottom: 1px solid #CCCCCC;
+    border-bottom: 1px dotted #777777;
+    font:100% "league-gothic",sans-serif;
     color: #000000;
     font-size: 24px;
+    line-height: 20px;
+    display:inline-block;
+    margin-bottom: -50px;
 }
 
 h3 {
@@ -75,7 +80,7 @@ code {
 
 pre {
     border: 1px solid #CCCCCC;
-    line-height: 1.25em;
+    line-height: 1.33em;
     overflow: auto;
     padding: 6px 10px;
 }
@@ -92,6 +97,27 @@ a, a:visited {
     text-decoration: none;
 }
 
-#end {border-top: 1px solid #777777;
-      font-size: 0.75em;}
+a:hover {background-color: #D9E9F9;
+         text-decoration: underline;
+         color:#333;}
 
+#end  p {border-top: 1px dotted #777777;
+      width:auto;
+      font-size: 0.75em;
+      display:inline-block;}
+
+.links, .links a {background-color: #fff !important;}
+
+.fa {font-size: 1.5em;
+    padding-right: 6px;
+    padding-bottom: none;}
+
+.fa:hover {background-color:#fff !important;
+           color:#333;}
+
+.timestamp {font: 100% 'Lato', sans-serif;
+            font-weight:300;
+            font-size: 0.75em;}
+
+.avatar img , .avatar a {width:222px;
+                         background-color: #fff !important;}
