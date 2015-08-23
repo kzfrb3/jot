@@ -1,5 +1,7 @@
 #Jot
 
+[![Join the chat at https://gitter.im/yagermadden/jot](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/yagermadden/jot?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+
 A little script for creating a single-page, static-generated website with a "status update" content section that can be edited and replaced easily.
 
 You just write a little content in Markdown, and a Python script converts the Markdown to HTML, adds it to the template file, and rsyncs to the server. So....
