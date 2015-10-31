@@ -17,5 +17,6 @@ template.html
 index.html
 draft_jot.md
 junk_drawer
+static/*
 draft/*
 !draft/.jot.example.md
