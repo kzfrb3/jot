@@ -9,5 +9,4 @@ pyvenv.cfg
 # Apple weirdness and such
 .DS_Store
 *.swp
-.posts.md
-site_build
+site_build/
