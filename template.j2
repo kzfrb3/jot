@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="en" class="no-js">	
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>xqo</title>
+    <meta name="description" content="">
+    <link rel="canonical" href="https://xqo.wtf">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+	</head>
+<body>
+    <div class="wrapper">
+        <header></header>
+        <main>
+        {% for post in posts %}
+            <div class="post">
+                {{ post.content | safe }}
+                <p class="post-date">
+                    <a href="{{ post.metadata.title }}.html">{{ post.metadata.date }}</a>
+                </p>
+            </div>
+        {% endfor %}
+        </main>
+        <footer></footer>
+    </div>
+</body>
+</html>
