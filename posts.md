@@ -33,3 +33,10 @@ stamp: 2019-09-24T16:11:13Z
 Welp, I wanted it, so I did it. Eleventy [was indeed](53a1559.html) cool, but since I'm all about short posts here, I [wrote my own Python code](https://github.com/tym-xqo/jot) to generate this site from a single file. It's a very simple script, that just uses [Markown](https://daringfireball.net/projects/markdown/), [YAML](https://yaml.org/), and a [Jinja](https://jinja.palletsprojects.com) template.
 
 I've actually thought about doing something like this for some time, so I'm glad I was finally motivated to get around to it.
+
+{end}
+---
+slug: 782dec4
+stamp: 2019-09-24T17:09:55Z
+---
+Having so far posted only meta details about the blog itself, I figured I'd skip ahead and go straight to the ["sorry I haven't posted"](http://sorry.coryarcangel.com/) post.
