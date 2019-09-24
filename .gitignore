@@ -5,18 +5,7 @@
 [Ll]ib
 [Ss]cripts
 pyvenv.cfg
-pip-selfcheck.json
+.venv
 # Apple weirdness and such
 .DS_Store
 *.swp
-# Sublime Text artifacts
-*.sublime-workspace
-*.sublime-project
-config.yml
-template.html
-index.html
-draft_jot.md
-junk_drawer
-static/*
-draft/*
-!draft/.jot.example.md
