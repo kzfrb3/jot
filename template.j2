@@ -4,24 +4,25 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>xqo</title>
-    <meta name="description" content="">
+    <meta name="description" content="semi-anonymous microblog by a minuscule part of the universe">
     <link rel="canonical" href="https://xqo.wtf">
+    <link rel="stylesheet" href="style.css">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 	</head>
 <body>
     <div class="wrapper">
-        <header></header>
+        <header><h1>xqo dot wtf</h1></header>
         <main>
         {% for post in posts %}
             <div class="post">
                 {{ post.content | safe }}
-                <p class="post-date">
-                    <a href="{{ post.metadata.title }}.html">{{ post.metadata.date }}</a>
+                <p class="post-stamp">
+                    <a href="{{ post.metadata.slug }}.html">{{ post.metadata.stamp }}</a>
                 </p>
             </div>
         {% endfor %}
         </main>
-        <footer></footer>
+        <footer><a href="/">home</a></footer>
     </div>
 </body>
 </html>
