@@ -1,6 +1,6 @@
 ---
 stamp: 2019-09-23T15:30:13Z 
-slug: "53a1559"
+slug: 53a1559
 ---
 Stupid blog is stupid. [Eleventy](https://www.11ty.io) is kinda neat, tho.
 
@@ -21,6 +21,15 @@ Really not sure yet what I'm doing with this, except that I want it to be really
 {end}
 ---
 stamp: 2019-09-23T16:35:11Z
-slug: "ef2eb1b"
+slug: ef2eb1b
 ---
 And but so I was getting some weird failed builds trying to build from gitlab push. Let's see how this one goes (if you're reading this, it worked!)
+
+{end}
+---
+slug: 9ffbb43
+stamp: 2019-09-24T16:11:13Z
+---
+Welp, I wanted it, so I did it. Eleventy [was indeed](53a1559.html) cool, but since I'm all about short posts here, I [wrote my own Python code](https://github.com/tym-xqo/jot) to generate this site from a single file. It's a very simple script, that just uses [Markown](https://daringfireball.net/projects/markdown/), [YAML](https://yaml.org/), and a [Jinja](https://jinja.palletsprojects.com) template.
+
+I've actually thought about doing something like this for some time, so I'm glad I was finally motivated to get around to it.
