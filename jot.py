@@ -10,11 +10,16 @@ POSTS = open("posts.md").read()
 
 
 def get_posts():
+    """ Split the posts file content into a list of individual posts
+    """
     posts = POSTS.split("{end}")
     return posts
 
 
 def parse_post(post):
+    """ Split an individual post into metadata and content sections, and YAML load
+    the metadata while coverting the markdown content to HTML
+    """
     item = post.split("---")[1:]
     metadata = yaml.safe_load(item[0])
     content = markdown(item[1].strip())
@@ -23,6 +28,8 @@ def parse_post(post):
 
 
 def sort_posts():
+    """ Convert post timestamps to UTC, and sort the posts list according to these values
+    """
     posts = get_posts()
     sorted_posts = []
     utc = pytz.timezone("UTC")
@@ -37,6 +44,8 @@ def sort_posts():
 
 
 def render(posts=[]):
+    """ Given a list of parsed posts, render the HTML from the template file
+    """
     if not posts:
         posts = sort_posts()
     with open("template.j2") as template_file:
@@ -46,15 +55,18 @@ def render(posts=[]):
 
 
 def copy_css():
+    """ Copy the CSS file into the build directory
+    """
     src = Path("style.css")
     dest = Path("site_build/style.css")
     shutil.copy(src, dest)
 
 
 def build():
+    """ Generate HTML from posts in `posts.md`
     """
-    """
-    Path("site_build").mkdir(exist_ok=True)
+    # TODO: pagination on main posts page
+    Path("site_build").mkdir(exist_ok=True)  # create build directory
     copy_css()
     posts = sort_posts()
     html = render(posts=posts)
