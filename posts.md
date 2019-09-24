@@ -40,3 +40,10 @@ slug: 782dec4
 stamp: 2019-09-24T17:09:55Z
 ---
 Having so far posted only meta details about the blog itself, I figured I'd skip ahead and go straight to the ["sorry I haven't posted"](http://sorry.coryarcangel.com/) post.
+
+{end}
+---
+slug: 3ce9c35
+stamp: 2019-09-24T15:36:38-05:00
+---
+Posting from my phone, because I can, and this is how.
