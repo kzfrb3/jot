@@ -24,7 +24,10 @@
         {% endfor %}
         </main>
         <footer>
-                <p><a href="/">home</a> | 
+                <p><a href="/">home</a>
+                {% if total > 0 %}
+                 | 
+                {% endif %}
                 {% if page == 1 %}
                 <a href="/index.html">newer</a> 
                 {% elif page > 1 and page <= total %}
