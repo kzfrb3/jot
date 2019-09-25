@@ -7,4 +7,7 @@ Simple python script that generates a static blog page from a text file. Just ap
 ## TODO
 
 - ~~pagination for the main index~~
+- move pagination link calculation from template to script
 - Atom feed output
+- stand-alone pages from template
+- multiple post files
