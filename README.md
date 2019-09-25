@@ -6,5 +6,5 @@ Simple python script that generates a static blog page from a text file. Just ap
 
 ## TODO
 
-- pagination for the main index
+- ~~pagination for the main index~~
 - Atom feed output
