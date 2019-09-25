@@ -16,16 +16,28 @@
         {% for post in posts %}
             <div class="post">
                 {{ post.content | safe }}
-                {% if post.metadata.slug is defined %}
-                    <p class="post-stamp">
-                        <a href="/{{ post.metadata.slug }}">
-                        {{ post.metadata.stamp }}</a>
-                    </p>
-                {% endif %}
+                <p class="post-stamp">
+                    <a href="/{{ post.metadata.slug }}">
+                    {{ post.metadata.stamp }}</a>
+                </p>
             </div>
         {% endfor %}
         </main>
-        <footer><a href="/">home</a></footer>
+        <footer>
+                <p><a href="/">home</a> | 
+                {% if page == 1 %}
+                <a href="/index.html">newer</a> 
+                {% elif page > 1 and page <= total %}
+                <a href="/index{{ page - 1 }}.html">newer</a>
+                {% endif %}
+                {% if page > 0 and page < total %}
+                 | 
+                {% endif %}
+                {% if page < total %}
+                <a href="/index{{ page + 1 }}.html">older</a>
+                {% endif %}
+                </p>
+        </footer>
     </div>
 </body>
 </html>

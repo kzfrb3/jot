@@ -7,6 +7,7 @@ from jinja2 import Template
 from markdown import markdown
 
 POSTS = open("posts.md").read()
+POSTS_PER_PAGE = 3
 
 
 def get_posts():
@@ -43,14 +44,14 @@ def sort_posts():
     return all_sorted
 
 
-def render(posts=[]):
+def render(posts=[], page=0, total=0):
     """ Given a list of parsed posts, render the HTML from the template file
     """
     if not posts:
         posts = sort_posts()
     with open("template.j2") as template_file:
         template = Template(template_file.read())
-    html = template.render(posts=posts)
+    html = template.render(posts=posts, page=page, total=total)
     return html
 
 
@@ -74,22 +75,22 @@ def copy_static():
 
 def post_pages():
     posts = sort_posts()
-    for i in range(0, len(posts), 3):
-        yield posts[i : i + 3]
+    for i in range(0, len(posts), POSTS_PER_PAGE):
+        yield posts[i : i + POSTS_PER_PAGE]
 
 
 def build_index():
     """ Generate main blog HTML from posts in `posts.md`
     """
-    # TODO: pagination on main posts page
     posts = list(post_pages())
-    p = 0
-    for page in posts:
-        html = render(posts=page)
-        with open(f"site_build/index{p}.html", "w") as output:
+    total_pages = len(posts) - 1
+    for idx, page in enumerate(posts):
+        html = render(posts=page, page=idx, total=total_pages)
+        file_ = f"index{idx}.html"
+        if idx == 0:
+            file_ = "index.html"
+        with open(f"site_build/{file_}", "w") as output:
             output.write(html)
-        p += 1
-    shutil.move("site_build/index0.html", "site_build/index.html")
 
 
 def build_individual():
