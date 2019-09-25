@@ -54,31 +54,62 @@ def render(posts=[]):
     return html
 
 
+def clean_build():
+    """ Remove build directory and recreate empty
+    """
+    shutil.rmtree("site_build", ignore_errors=True)
+    build_dir = Path("site_build")
+    build_dir.mkdir(exist_ok=True)
+    return build_dir
+
+
 def copy_static():
     """ Copy the static files into the build directory
     """
     src = list(Path("static").glob("**/*"))
-    for file_ in src:
-        dest = Path("site_build", file_.name)
-        shutil.copy(file_, dest)
+    for f in src:
+        dest = Path("site_build", f.name)
+        shutil.copy(f, dest)
+
+
+def post_pages():
+    posts = sort_posts()
+    for i in range(0, len(posts), 3):
+        yield posts[i : i + 3]
+
+
+def build_index():
+    """ Generate main blog HTML from posts in `posts.md`
+    """
+    # TODO: pagination on main posts page
+    posts = list(post_pages())
+    p = 0
+    for page in posts:
+        html = render(posts=page)
+        with open(f"site_build/index{p}.html", "w") as output:
+            output.write(html)
+        p += 1
+    shutil.move("site_build/index0.html", "site_build/index.html")
+
+
+def build_individual():
+    """ Generate permalink pages for individual posts
+    """
+    for post in sort_posts():
+        slug = post["metadata"]["slug"]
+        permalink = Path("site_build", slug)
+        permalink.mkdir(parents=True, exist_ok=True)
+        post_file = Path(permalink, "index.html")
+        with open(post_file, "w") as post_output:
+            html = render(posts=[post])
+            post_output.write(html)
 
 
 def build():
-    """ Generate HTML from posts in `posts.md`
-    """
-    # TODO: pagination on main posts page
-    Path("site_build").mkdir(exist_ok=True)  # create build directory
+    clean_build()
     copy_static()
-    posts = sort_posts()
-    html = render(posts=posts)
-    with open("site_build/index.html", "w") as output:
-        output.write(html)
-    for post in sort_posts():
-        slug = post["metadata"]["slug"]
-        filename = f"site_build/{slug}.html"
-        with open(filename, "w") as post_output:
-            html = render(posts=[post])
-            post_output.write(html)
+    build_index()
+    build_individual()
 
 
 if __name__ == "__main__":

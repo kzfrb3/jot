@@ -6,7 +6,7 @@
     <title>xqo</title>
     <meta name="description" content="semi-anonymous microblog by a minuscule part of the universe">
     <link rel="canonical" href="https://xqo.wtf">
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="/style.css">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 	</head>
 <body>
@@ -18,7 +18,7 @@
                 {{ post.content | safe }}
                 {% if post.metadata.slug is defined %}
                     <p class="post-stamp">
-                        <a href="{{ post.metadata.slug }}.html">
+                        <a href="/{{ post.metadata.slug }}">
                         {{ post.metadata.stamp }}</a>
                     </p>
                 {% endif %}
