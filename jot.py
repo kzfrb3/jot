@@ -54,12 +54,13 @@ def render(posts=[]):
     return html
 
 
-def copy_css():
-    """ Copy the CSS file into the build directory
+def copy_static():
+    """ Copy the static files into the build directory
     """
-    src = Path("style.css")
-    dest = Path("site_build/style.css")
-    shutil.copy(src, dest)
+    src = list(Path("static").glob("**/*"))
+    for file_ in src:
+        dest = Path("site_build", file_.name)
+        shutil.copy(file_, dest)
 
 
 def build():
@@ -67,7 +68,7 @@ def build():
     """
     # TODO: pagination on main posts page
     Path("site_build").mkdir(exist_ok=True)  # create build directory
-    copy_css()
+    copy_static()
     posts = sort_posts()
     html = render(posts=posts)
     with open("site_build/index.html", "w") as output:

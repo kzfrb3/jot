@@ -13,17 +13,11 @@
     <div class="wrapper">
         <header><h1>xqo dot wtf</h1></header>
         <main>
-        {% for post in posts %}
+        
             <div class="post">
-                {{ post.content | safe }}
-                {% if post.metadata.slug is defined %}
-                    <p class="post-stamp">
-                        <a href="{{ post.metadata.slug }}.html">
-                        {{ post.metadata.stamp }}</a>
-                    </p>
-                {% endif %}
+                <p>Whoops, struck out. 404. 😕 Sorry, pal. Better luck next time.</p>
             </div>
-        {% endfor %}
+        
         </main>
         <footer><a href="/">home</a></footer>
     </div>
