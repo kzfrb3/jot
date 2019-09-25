@@ -76,7 +76,7 @@ def copy_static():
 def post_pages():
     posts = sort_posts()
     for i in range(0, len(posts), POSTS_PER_PAGE):
-        yield posts[i : i + POSTS_PER_PAGE]
+        yield posts[i : i + POSTS_PER_PAGE]  # noqa E203
 
 
 def build_index():
