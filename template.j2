@@ -18,7 +18,7 @@
                 {{ post.content | safe }}
                 <p class="post-stamp">
                     <a href="/{{ post.metadata.slug }}">
-                    {{ post.metadata.stamp }}</a>
+                    {{ post.metadata.stamp.isoformat() }}</a>
                 </p>
             </div>
         {% endfor %}

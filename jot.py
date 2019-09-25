@@ -36,7 +36,7 @@ def sort_posts():
     utc = pytz.timezone("UTC")
     for post in posts:
         post = parse_post(post)
-        post["metadata"]["stamp"] = utc.localize(post["metadata"]["stamp"]).isoformat()
+        post["metadata"]["stamp"] = utc.localize(post["metadata"]["stamp"])
         sorted_posts.append(post)
     all_sorted = sorted(
         sorted_posts, key=lambda post: post["metadata"]["stamp"], reverse=True
