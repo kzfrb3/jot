@@ -21,9 +21,9 @@ def parse_post(post):
     """ Split an individual post into metadata and content sections, and YAML load
     the metadata while coverting the markdown content to HTML
     """
-    item = post.split("---")[1:]
+    item = [i.strip() for i in post.split("---", 2)[1:3]]
     metadata = yaml.safe_load(item[0])
-    content = markdown(item[1].strip())
+    content = markdown(item[1])
     item = dict(metadata=metadata, content=content)
     return item
 
