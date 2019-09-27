@@ -112,7 +112,9 @@ def build_individual(posts):
 def build_feed(posts):
     """ Generate Atom feed file
     """
-    feed = Atom1Feed(title="xqo dot wtf", description="", link=SITEURL, language="en")
+    feed = Atom1Feed(
+        title="xqo dot wtf", description="", link=f"{SITEURL}/", language="en"
+    )
     for post in posts:
         slug = post["metadata"]["slug"]
         stamp = post["metadata"]["stamp"]
