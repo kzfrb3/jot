@@ -1,13 +1,18 @@
+#!/usr/bin/env python
+# -*- coding: utf-8 -
 import shutil
 from pathlib import Path
 
 import pytz
 import yaml
+from feedgenerator import Atom1Feed
 from jinja2 import Template
 from markdown import markdown
 
+# TODO: config file(?)
 POSTS = open("posts.md").read()
 POSTS_PER_PAGE = 3
+SITEURL = "https://www.xqo.wtf"
 
 
 def get_posts():
@@ -106,10 +111,30 @@ def build_individual():
             post_output.write(html)
 
 
+def build_feed():
+    """ Generate Atom feed file
+    """
+    feed = Atom1Feed(title="xqo dot wtf", description="", link=SITEURL, language="en")
+    for post in sort_posts():
+        slug = post["metadata"]["slug"]
+        stamp = post["metadata"]["stamp"]
+        content = post["content"]
+        feed.add_item(
+            title=slug,
+            pubdate=stamp,
+            content=content,
+            description=None,
+            link=f"{SITEURL}/{slug}",
+        )
+    with open("site_build/feed.xml", "w") as feed_output:
+        feed.write(feed_output, "utf-8")
+
+
 def build():
     clean_build()
     copy_static()
     build_index()
+    build_feed()
     build_individual()
 
 
