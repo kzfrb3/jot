@@ -15,51 +15,6 @@ POSTS_PER_PAGE = 3
 SITEURL = "https://www.xqo.wtf"
 
 
-def get_posts():
-    """ Split the posts file content into a list of individual posts
-    """
-    posts = POSTS.split("{end}")
-    return posts
-
-
-def parse_post(post):
-    """ Split an individual post into metadata and content sections, and YAML load
-    the metadata while coverting the markdown content to HTML
-    """
-    item = [i.strip() for i in post.split("---", 2)[1:3]]
-    metadata = yaml.safe_load(item[0])
-    content = markdown(item[1])
-    item = dict(metadata=metadata, content=content)
-    return item
-
-
-def sort_posts():
-    """ Convert post timestamps to UTC, and sort the posts list according to these values
-    """
-    posts = get_posts()
-    sorted_posts = []
-    utc = pytz.timezone("UTC")
-    for post in posts:
-        post = parse_post(post)
-        post["metadata"]["stamp"] = utc.localize(post["metadata"]["stamp"])
-        sorted_posts.append(post)
-    all_sorted = sorted(
-        sorted_posts, key=lambda post: post["metadata"]["stamp"], reverse=True
-    )
-    return all_sorted
-
-
-def render(posts=[], page=0, total=0):
-    """ Given a list of parsed posts, render the HTML from the template file
-    """
-    if not posts:
-        posts = sort_posts()
-    with open("template.j2") as template_file:
-        template = Template(template_file.read())
-    html = template.render(posts=posts, page=page, total=total)
-    return html
-
-
 def clean_build():
     """ Remove build directory and recreate empty
     """
@@ -78,13 +33,56 @@ def copy_static():
         shutil.copy(f, dest)
 
 
+def get_posts():
+    """ Split the posts file content into a list of individual posts
+    """
+    posts = POSTS.split("{end}")
+    return posts
+
+
+def parse_post(post):
+    """ Split an individual post into metadata and content sections, and YAML load
+    the metadata while coverting the markdown content to HTML
+    """
+    item = [i.strip() for i in post.split("---", 2)[1:3]]
+    metadata = yaml.safe_load(item[0])
+    content = markdown(item[1])
+    parsed = dict(metadata=metadata, content=content)
+    return parsed
+
+
+def sort_posts():
+    """ Convert post timestamps to UTC, and sort the posts list according to these values
+    """
+    posts = get_posts()
+    sorted_posts = []
+    utc = pytz.timezone("UTC")
+    for post in posts:
+        post = parse_post(post)
+        post["metadata"]["stamp"] = utc.localize(post["metadata"]["stamp"])
+        sorted_posts.append(post)
+    all_sorted = sorted(
+        sorted_posts, key=lambda post: post["metadata"]["stamp"], reverse=True
+    )
+    return all_sorted
+
+
+def render(posts, page=0, total=0):
+    """ Given a list of parsed posts, render the HTML from the template file
+    """
+    with open("template.j2") as template_file:
+        template = Template(template_file.read())
+    html = template.render(posts=posts, page=page, total=total)
+    return html
+
+
 def post_pages():
     posts = sort_posts()
     for i in range(0, len(posts), POSTS_PER_PAGE):
         yield posts[i : i + POSTS_PER_PAGE]  # noqa E203
 
 
-def build_index():
+def build_index(posts):
     """ Generate main blog HTML from posts in `posts.md`
     """
     posts = list(post_pages())
@@ -98,10 +96,10 @@ def build_index():
             output.write(html)
 
 
-def build_individual():
+def build_individual(posts):
     """ Generate permalink pages for individual posts
     """
-    for post in sort_posts():
+    for post in posts:
         slug = post["metadata"]["slug"]
         permalink = Path("site_build", slug)
         permalink.mkdir(parents=True, exist_ok=True)
@@ -111,11 +109,11 @@ def build_individual():
             post_output.write(html)
 
 
-def build_feed():
+def build_feed(posts):
     """ Generate Atom feed file
     """
     feed = Atom1Feed(title="xqo dot wtf", description="", link=SITEURL, language="en")
-    for post in sort_posts():
+    for post in posts:
         slug = post["metadata"]["slug"]
         stamp = post["metadata"]["stamp"]
         content = post["content"]
@@ -123,6 +121,7 @@ def build_feed():
             title=slug,
             pubdate=stamp,
             content=content,
+            author="xqo",
             description=None,
             link=f"{SITEURL}/{slug}",
         )
@@ -133,9 +132,11 @@ def build_feed():
 def build():
     clean_build()
     copy_static()
-    build_index()
-    build_feed()
-    build_individual()
+    posts = sort_posts()
+
+    build_index(posts)
+    build_feed(posts)
+    build_individual(posts)
 
 
 if __name__ == "__main__":

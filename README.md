@@ -9,11 +9,3 @@ This repo currently includes content and template for <https://xqo.wtf> but in t
 ## License
 
 In keeping with the name and nature of the project, released under the [WTFPL](http://www.wtfpl.net/txt/copying/).
-
-## TODO
-
-- move pagination link calculation from template to script
-- stand-alone pages from template
-- multiple post files
-- ~~pagination for the main index~~
-- ~~Atom feed output~~
