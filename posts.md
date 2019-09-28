@@ -67,7 +67,7 @@ So, last night I was walking to the train, and carrying a rubber band ball that 
 slug: 65413f0
 stamp: 2019-09-28T13:39:53-05:00
 ---
-Inhale: _Courage to love_
-Hold: _Courage to have_
-Exhale: _Courage to give_
+Inhale: _Courage to love_<br/>
+Hold: _Courage to have_<br/>
+Exhale: _Courage to give_<br/>
 Hold: _Courage to be_
