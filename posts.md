@@ -61,3 +61,13 @@ slug: 014cd21
 stamp: 2019-09-26T15:18:22Z
 ---
 So, last night I was walking to the train, and carrying a rubber band ball that I made. I was right at Canal and Madison, and the ball slipped out of my hand and bounced off into the street. I felt a little silly, but there was a lot of traffic, so I gave it up for lost and just watched it bounce away. As I was crossing Canal, a middle aged African American woman—who had seen the whole thing—smiled at me. I laughed back, and shrugged. It was a whole moment.
+
+{end}
+---
+slug: 65413f0
+stamp: 2019-09-28T13:39:53-05:00
+---
+Inhale: _Courage to love_
+Hold: _Courage to have_
+Exhale: _Courage to give_
+Hold: _Courage to be_
