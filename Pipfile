@@ -11,6 +11,7 @@ pyyaml = "*"
 pytz = "*"
 jinja2 = "*"
 feedgenerator = "*"
+livereload = "*"
 
 [requires]
 python_version = "3.7"

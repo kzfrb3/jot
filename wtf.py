@@ -1,16 +1,17 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -
 import shutil
+from argparse import ArgumentParser
 from pathlib import Path
 
 import pytz
 import yaml
 from feedgenerator import Atom1Feed
 from jinja2 import Template
+from livereload import Server
 from markdown import markdown
 
 # TODO: config file(?)
-POSTS = open("posts.md").read()
 POSTS_PER_PAGE = 3
 SITEURL = "https://www.xqo.wtf"
 
@@ -36,7 +37,9 @@ def copy_static():
 def get_posts():
     """ Split the posts file content into a list of individual posts
     """
-    posts = POSTS.split("{end}")
+    with open("posts.md") as post_file:
+        content = post_file.read()
+    posts = content.split("{end}")
     return posts
 
 
@@ -134,12 +137,25 @@ def build_feed(posts):
 def build():
     clean_build()
     copy_static()
-    posts = sort_posts()
 
+    posts = sort_posts()
     build_index(posts)
     build_feed(posts)
     build_individual(posts)
+    print("built!")
+
+
+def serve():
+    server = Server()
+    server.watch("posts.md", build)
+    server.watch("template.j2", build)
+    server.serve(root="site_build")
 
 
 if __name__ == "__main__":
     build()
+    parser = ArgumentParser()
+    parser.add_argument("-s", "--serve", action="store_true", default=False)
+    args = parser.parse_args()
+    if args.serve:
+        serve()
