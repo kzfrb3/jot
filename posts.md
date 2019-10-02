@@ -71,3 +71,13 @@ Inhale: _Courage to love_<br/>
 Hold: _Courage to have_<br/>
 Exhale: _Courage to give_<br/>
 Hold: _Courage to be_
+
+{end}
+---
+slug: cee839a
+stamp: 2019-10-02T04:55:15Z
+---
+Geeking out, today I:
+
+1. added a development server to [my blog script](https://github.com/tym-xqo/xqo.wtf) with [livereload](https://livereload.readthedocs.io/en/latest/) to make trying out local builds easier
+2. Switched my default shell from `fish` to `zsh` and used [oh-my-zsh](https://ohmyz.sh) to get the crazy-cool [powerlevel10k](https://github.com/romkatv/powerlevel10k) theme installed. I feel more techy-studly-cool already.
