@@ -31,15 +31,16 @@ footer {
 }
 
 .wrapper {
-    max-width: 31.8%
+    width: calc(100% - 3em);
+    max-width: 600px;
 }
 
-@media all and (max-width:768px) {
+/* @media all and (max-width:768px) {
     .wrapper {
         max-width: 77%;
         padding: 1rem;
     }
-}
+} */
 
 .post {
     margin-top: 1em;

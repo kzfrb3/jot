@@ -81,3 +81,10 @@ Geeking out, today I:
 
 1. added a development server to [my blog script](https://github.com/tym-xqo/xqo.wtf) with [livereload](https://livereload.readthedocs.io/en/latest/) to make trying out local builds easier
 2. Switched my default shell from `fish` to `zsh` and used [oh-my-zsh](https://ohmyz.sh) to get the crazy-cool [powerlevel10k](https://github.com/romkatv/powerlevel10k) theme installed. I feel more techy-studly-cool already.
+
+{end}
+---
+slug: a7a487a
+stamp: 2019-10-03T16:24:50Z
+---
+I got new glasses last night: nicer frame, new prescription, and the lenses are workspace progressives—with larger intermediate and near focus areas than my old ones. I'm really digging them. Wearing them feels like a significant life upgrade, and there's been virtually no getting used to them difficulty.
