@@ -88,3 +88,11 @@ slug: a7a487a
 stamp: 2019-10-03T16:24:50Z
 ---
 I got new glasses last night: nicer frame, new prescription, and the lenses are workspace progressives—with larger intermediate and near focus areas than my old ones. I'm really digging them. Wearing them feels like a significant life upgrade, and there's been virtually no getting used to them difficulty.
+
+{end}
+---
+slug: afc4ba3
+stamp: 2019-10-14T11:31:33-05:00
+---
+
+Dang. If I had had any idea how comfortable and well-made Wayfarers actually are, I would have invested in a pair long ago.
