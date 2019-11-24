@@ -96,3 +96,10 @@ stamp: 2019-10-14T11:31:33-05:00
 ---
 
 Dang. If I had had any idea how comfortable and well-made Wayfarers actually are, I would have invested in a pair long ago.
+
+{end}
+---
+slug: 1454c8c
+stamp: 2019-11-24T22:08:18Z
+---
+"I find your lack of croutons disturbing." - Me, out loud, to this salad
