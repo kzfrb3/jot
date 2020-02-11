@@ -88,3 +88,13 @@ slug: a7a487a
 stamp: 2019-10-03T16:24:50Z
 ---
 I got new glasses last night: nicer frame, new prescription, and the lenses are workspace progressives—with larger intermediate and near focus areas than my old ones. I'm really digging them. Wearing them feels like a significant life upgrade, and there's been virtually no getting used to them difficulty.
+
+
+{end}
+---
+slug: a7adddd
+stamp: 2020-02-10T19:13:25+6:00
+---
+I spend a lot of time ruminating. It's complicated, but I believe one of the factors is I've been through a lot of things where I felt like I never got closure. I think it's related to my sensitivity; my expectations and standards for closure are pretty high, and my discomfort at not getting it can be acute. So I tend to feel like I'm walking around with a lot of loose ends, things that didn't turn out the way I wanted them too, and that left me not knowing how to move on. Like I say, it’s hardly the only reason I’m given to rumination, but it’s a big one.
+
+So and but anyway, I realized today I can just declare closure bankruptcy on ALL of that. So that relationship ended badly, or this one friend stopped returning my calls. Not everything gets tied up with a tidy bow, and I rarely get to understand the reasons why. No amount of rumination is going to change those stories or bring the closure to them that I wish they had. But I can move on from every single one of them at once by just declaring that it’s time. I’m sure they’ll still pop up frequently, asking me to dig into another good rumination session, but I can just refer them to the bankruptcy court, like they were bad debt collectors. I gotta do something to get them all off my back.
