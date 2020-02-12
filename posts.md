@@ -119,3 +119,10 @@ slug: f85f941
 stamp: 2020-02-11T17:57:27Z
 --
 Just realizing I can up my [closure bankruptcy](b90bfa9) to rumination bankruptcy in general. Anything that suggests itself to my thoughts as a topic for repetitive cogitation, I will politely ask to take it up with the judge. I don't have time for any of that.
+
+{end}
+---
+slug: 2a8bf32
+stamp: 2020-02-12T18:12:40Z
+--
+Observation: so-called "open" office layouts discourage or militate against an [open focus](https://openfocus.com/home/) style of attention. There's too much distraction and noise; narrow-objective focus must be maintained in order to get anything done. It becomes inherently stressful just to sit at a desk because of the amount of background filtering one has to do just to get through the day.
