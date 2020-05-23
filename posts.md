@@ -126,3 +126,10 @@ slug: 2a8bf32
 stamp: 2020-02-12T18:12:40Z
 ---
 Observation: so-called "open" office layouts discourage or militate against an [open focus](https://openfocus.com/home/) style of attention. There's too much distraction and noise; narrow-objective focus must be maintained in order to get anything done. It becomes inherently stressful just to sit at a desk because of the amount of background filtering one has to do just to get through the day.
+
+{end}
+---
+slug: ebebddb
+stamp: 2020-05-23T15:20:37Z
+---
+Small coding workflow design pattern: in every repo, add a subdirectory named `_junk_drawer`. Add that name to `~/.gitignore_global`. Use the folder to keep little sketches and experiments you need to try to figure stuff out along the way. Also, immediately add a `notes.md` file to it, and use that to keep track of rationales for things that might not warrant a code comment, but will help you later to make a good commit message.
