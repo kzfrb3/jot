@@ -138,5 +138,5 @@ Small coding workflow design pattern: in every repo, add a subdirectory named `_
 ---
 slug: 9ec82f6
 stamp: 2020-05-28T02:17:59Z
---
+---
 DISARM THE FUCKING COPS!
