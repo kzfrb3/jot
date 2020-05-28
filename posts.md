@@ -133,3 +133,10 @@ slug: ebebddb
 stamp: 2020-05-23T15:20:37Z
 ---
 Small coding workflow design pattern: in every repo, add a subdirectory named `_junk_drawer`. Add that name to `~/.gitignore_global`. Use the folder to keep little sketches and experiments you need to try to figure stuff out along the way. Also, immediately add a `notes.md` file to it, and use that to keep track of rationales for things that might not warrant a code comment, but will help you later to make a good commit message.
+
+{end}
+---
+slug: 9ec82f6
+stamp: 2020-05-28T02:17:59Z
+--
+DISARM THE FUCKING COPS!
