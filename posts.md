@@ -145,5 +145,5 @@ DISARM THE FUCKING COPS!
 ---
 slug: 0a463dd
 stamp: 2020-06-04T02:27:58Z
---
+---
 [I am very impressed by James Mattis right now](https://www.theatlantic.com/politics/archive/2020/06/james-mattis-denounces-trump-protests-militarization/612640/)
