@@ -147,3 +147,11 @@ slug: 0a463dd
 stamp: 2020-06-04T02:27:58Z
 ---
 [I am very impressed by James Mattis right now](https://www.theatlantic.com/politics/archive/2020/06/james-mattis-denounces-trump-protests-militarization/612640/)
+
+
+{end}
+---
+slug: a0945cd
+stamp: 2020-06-04T21:13:30-5:00
+---
+[More like this, please](https://www.buzzfeednews.com/article/zoetillman/black-lives-matter-lawsuit-police-tear-gas-white-house)
