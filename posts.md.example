@@ -9,7 +9,7 @@ First post!
 slug: b0e5d45
 stamp: 2019-09-23T19:55:41Z
 ---
-To make more posts, just keep appending to this file. Put `{end}` on a line between posts, and a YAML document with `slug` and `stamp` on the top of each post, set off by the customary `---`. (`slug` can be any arbitrary unique string. Personally, I favor random 7-digit hex codes.) Don't put `{end}` after the last post on the page; save it for when creating a new post below.
+To make more posts, just keep appending to this file. Put `{end}` on a line between posts, and a YAML document with `slug` and `stamp` on the top of each post, set off by the customary `---`. (`slug` can be any arbitrary unique string. Personally, I favor random 7-digit hex codes.)
 
 {end}
 ---
@@ -19,7 +19,6 @@ stamp: 2019-09-23T18:15:02Z
 Copypasta boilerplate for adding a new post:
 
 ```plain-text
-{end}
 ---
 slug: 
 stamp: 
@@ -32,3 +31,5 @@ stamp: 2019-09-23T16:35:11Z
 slug: ef2eb1b
 ---
 Last post (for now)!
+
+{end}

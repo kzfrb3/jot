@@ -1,5 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -
+from datetime import datetime
+import secrets
 import shutil
 from argparse import ArgumentParser
 from pathlib import Path
@@ -39,7 +41,7 @@ def get_posts():
     """
     with open("posts.md") as post_file:
         content = post_file.read()
-    posts = content.split("{end}")
+    posts = content.split("{end}")[:-1]
     return posts
 
 
@@ -62,7 +64,7 @@ def sort_posts():
     utc = pytz.timezone("UTC")
     for post in posts:
         post = parse_post(post)
-        post["metadata"]["stamp"] = utc.localize(post["metadata"]["stamp"])
+        post["metadata"]["stamp"] = (post["metadata"]["stamp"]).astimezone(utc)
         sorted_posts.append(post)
     all_sorted = sorted(
         sorted_posts, key=lambda post: post["metadata"]["stamp"], reverse=True
@@ -152,10 +154,25 @@ def serve():
     server.serve(root="site_build")
 
 
+def post():
+    utc = pytz.timezone("UTC")
+    token = secrets.token_hex(24)[:7]
+    stamp = utc.localize(datetime.utcnow()).isoformat()
+    header = f"---\nslug: {token}\nstamp: {stamp}\n---\n\n{{end}}\n"
+    with open("posts.md", "a") as post_file:
+        post_file.write(header)
+
+
 if __name__ == "__main__":
-    build()
     parser = ArgumentParser()
     parser.add_argument("-s", "--serve", action="store_true", default=False)
+    parser.add_argument("-p", "--post", action="store_true", default=False)
     args = parser.parse_args()
-    if args.serve:
-        serve()
+
+    if args.post:
+        post()
+
+    else:
+        build()
+        if args.serve:
+            serve()

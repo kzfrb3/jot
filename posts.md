@@ -148,10 +148,18 @@ stamp: 2020-06-04T02:27:58Z
 ---
 [I am very impressed by James Mattis right now](https://www.theatlantic.com/politics/archive/2020/06/james-mattis-denounces-trump-protests-militarization/612640/)
 
-
 {end}
 ---
 slug: a0945cd
 stamp: 2020-06-04T21:13:30-5:00
 ---
 [More like this, please](https://www.buzzfeednews.com/article/zoetillman/black-lives-matter-lawsuit-police-tear-gas-white-house)
+
+{end}
+---
+slug: e5136b1
+stamp: 2020-06-27T19:26:56Z
+---
+The idea that natural language itself—or the use of language, or any given language—is in any way a single, unified system, is rather obviously a falsehood. Language itself is no more unified than thinking, or than individuality—although like thinking and individuality, we usually discuss it as if we were talking about an identity. What we naively and offhandedly call _speaking_, or _writing_, or _using language_ actually refers to a grab-bag more or less similar but nevertheless distinct and various activities with all kinds of observable differences in both means and ends, and with inherent tendencies to move or grow or in any case change in their nature over time.
+
+{end}
