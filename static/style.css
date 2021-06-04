@@ -1,38 +1,49 @@
 html,
 body {
-    height: 100%;
+  height: 100%;
 }
 
 body {
-    margin: 0 auto;
-    background: #212529;
-    color: #dee2e6;
-    font-family: Georgia, 'Times New Roman', Times, serif;
-    font-size: 120%;
-    line-height: 150%
+  background: #dee2e6;
+  color: #6e7275;
+  font-family: Monaco, monospace;
+  font-size: 100%;
+  line-height: 150%;
 }
 
 main {
-    padding: 1rem;
+  padding: 1rem;
+  margin: 0 auto;
 }
 
 main :first-child {
-    margin-top: 0;
+  margin: 0 auto;
 }
 
 header {
-    border-bottom: 3px solid #000;
-    text-align: center;
-    color: #5c940d
+  border-bottom: 3px solid #000;
+  text-align: center;
+  color: #5c940d;
+  font-family: Georgia, "Times New Roman", Times, serif;
+}
+
+header h1 {
+  font-size: 1.5em;
+}
+
+header h2 {
+  font-family: Monaco, monospace;
+  font-size: 0.75em;
+  color: #6e7275;
 }
 
 footer {
-    text-align: center;
+  text-align: center;
 }
 
 .wrapper {
-    width: calc(100% - 3em);
-    max-width: 600px;
+  width: calc(100% - 3em);
+  max-width: 600px;
 }
 
 /* @media all and (max-width:768px) {
@@ -43,27 +54,29 @@ footer {
 } */
 
 .post {
-    margin-top: 1em;
-    border-bottom: 1px solid #555;
-    padding-bottom: 2em;
+  margin-top: 1em;
+  font-size: 0.9em;
+  border-bottom: 1px solid #555;
+  padding-bottom: 2em;
 }
 
 .post-stamp,
 footer {
-    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-    font-size: 0.618em;
-    text-align: right;
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+  font-size: 0.618em;
+  text-align: right;
 }
 
 a:link,
 a:visited {
-    color: #adb5bd;
-    text-decoration: none;
-    border-bottom: 1px solid #94d82d
+  color: #adb5bd;
+  text-decoration: none;
+  border-bottom: 1px solid #94d82d;
 }
 
 a:hover,
 a:active {
-    background: #1c7ed6;
-    border: none;
+  background: #1c7ed6;
+  border: none;
 }

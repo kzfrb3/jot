@@ -1,7 +1,6 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -
 from datetime import datetime
-import secrets
 import shutil
 from argparse import ArgumentParser
 from pathlib import Path
@@ -14,13 +13,12 @@ from livereload import Server
 from markdown import markdown
 
 # TODO: config file(?)
-POSTS_PER_PAGE = 3
-SITEURL = "https://www.xqo.wtf"
+POSTS_PER_PAGE = 4
+SITEURL = "https://pomes.ty-m.pw/"
 
 
 def clean_build():
-    """ Remove build directory and recreate empty
-    """
+    """Remove build directory and recreate empty"""
     shutil.rmtree("site_build", ignore_errors=True)
     build_dir = Path("site_build")
     build_dir.mkdir(exist_ok=True)
@@ -28,8 +26,7 @@ def clean_build():
 
 
 def copy_static():
-    """ Copy the static files into the build directory
-    """
+    """Copy the static files into the build directory"""
     src = list(Path("static").glob("**/*"))
     for f in src:
         dest = Path("site_build", f.name)
@@ -37,8 +34,7 @@ def copy_static():
 
 
 def get_posts():
-    """ Split the posts file content into a list of individual posts
-    """
+    """Split the posts file content into a list of individual posts"""
     with open("posts.md") as post_file:
         content = post_file.read()
     posts = content.split("{end}")[:-1]
@@ -46,19 +42,20 @@ def get_posts():
 
 
 def parse_post(post):
-    """ Split an individual post into metadata and content sections, and YAML load
+    """Split an individual post into metadata and content sections, and YAML load
     the metadata while coverting the markdown content to HTML
     """
     item = [i.strip() for i in post.split("---", 2)[1:3]]
     metadata = yaml.safe_load(item[0])
+    slug = item[1].split("\n")[0].strip().replace(" ", "-")
+    metadata["slug"] = slug
     content = markdown(item[1])
     parsed = dict(metadata=metadata, content=content)
     return parsed
 
 
 def sort_posts():
-    """ Convert post timestamps to UTC, and sort the posts list according to these values
-    """
+    """Convert timestamps to UTC, and sort the posts list according to these values"""
     posts = get_posts()
     sorted_posts = []
     utc = pytz.timezone("UTC")
@@ -73,8 +70,7 @@ def sort_posts():
 
 
 def render(posts, page=0, total=0):
-    """ Given a list of parsed posts, render the HTML from the template file
-    """
+    """Given a list of parsed posts, render the HTML from the template file"""
     with open("template.j2") as template_file:
         template = Template(template_file.read())
     html = template.render(posts=posts, page=page, total=total)
@@ -88,8 +84,7 @@ def post_pages():
 
 
 def build_index(posts):
-    """ Generate main blog HTML from posts in `posts.md`
-    """
+    """Generate main blog HTML from posts in `posts.md`"""
     posts = list(post_pages())
     total_pages = len(posts) - 1
     for idx, page in enumerate(posts):
@@ -102,8 +97,7 @@ def build_index(posts):
 
 
 def build_individual(posts):
-    """ Generate permalink pages for individual posts
-    """
+    """Generate permalink pages for individual posts"""
     for post in posts:
         slug = post["metadata"]["slug"]
         permalink = Path("site_build", slug)
@@ -115,10 +109,9 @@ def build_individual(posts):
 
 
 def build_feed(posts):
-    """ Generate Atom feed file
-    """
+    """Generate Atom feed file"""
     feed = Atom1Feed(
-        title="xqo dot wtf", description="", link=f"{SITEURL}/", language="en"
+        title="~tym smol pomes", description="", link=f"{SITEURL}/", language="en"
     )
     for post in posts:
         slug = post["metadata"]["slug"]
@@ -156,9 +149,8 @@ def serve():
 
 def post():
     utc = pytz.timezone("UTC")
-    token = secrets.token_hex(24)[:7]
     stamp = utc.localize(datetime.utcnow()).isoformat()
-    header = f"---\nslug: {token}\nstamp: {stamp}\n---\n\n{{end}}\n"
+    header = f"---\nstamp: {stamp}\n---\n\n{{end}}\n"
     with open("posts.md", "a") as post_file:
         post_file.write(header)
 
