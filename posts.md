@@ -41,3 +41,11 @@ emptiness over
 foolish beauty unfolding  
 the stars in your eyes
 {end}
+---
+stamp: 2021-06-16T12:45:55.574079+00:00
+---
+nothing to give you
+not even this blank paper
+not even silence
+{end}
+
