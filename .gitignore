@@ -11,3 +11,6 @@ pyvenv.cfg
 *.swp
 site_build/
 __pycache__/
+
+# Local Netlify folder
+.netlify

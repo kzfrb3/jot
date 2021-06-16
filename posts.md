@@ -37,7 +37,7 @@ remember each day
 ---
 stamp: 2021-06-16T04:27:31.259509+00:00
 ---
-emptiness over
-foolish beauty unfolding
+emptiness over  
+foolish beauty unfolding  
 the stars in your eyes
 {end}
