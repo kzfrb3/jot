@@ -48,4 +48,10 @@ nothing to give you
 not even this blank paper  
 not even silence
 {end}
-
+---
+stamp: 2021-07-01T08:18:54-05:00
+---
+psychiatric goon
+projections and triggers now
+no confusion here
+{end}
