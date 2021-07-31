@@ -55,3 +55,10 @@ psychiatric goon
 projections and triggers now
 no confusion here
 {end}
+---
+stamp: 2021-07-31T23:50:48Z
+---
+out in the hot night
+carnivore or caribou
+emphasize your scars
+{end}
