@@ -13,7 +13,7 @@ from livereload import Server
 from markdown import markdown
 
 # TODO: config file(?)
-POSTS_PER_PAGE = 4
+POSTS_PER_PAGE = 3
 SITEURL = "https://pomes.ty-m.pw/"
 
 

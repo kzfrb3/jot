@@ -51,14 +51,14 @@ not even silence
 ---
 stamp: 2021-07-01T08:18:54-05:00
 ---
-psychiatric goon
-projections and triggers now
-no confusion here
+psychiatric goon  
+projections and triggers now  
+I am not confused
 {end}
 ---
 stamp: 2021-07-31T23:50:48Z
 ---
-out in the hot night
-carnivore or caribou
+out in the hot night  
+carnivore or caribou  
 emphasize your scars
 {end}
