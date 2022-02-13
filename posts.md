@@ -69,3 +69,10 @@ you are so confused
 believe your conspiracies  
 loaded with virus
 {end}
+---
+stamp: 2022-02-13T12:19:46-06:00
+---
+pomegranate toes  
+a cunt like a nectarine  
+I still miss her sweat
+{end}
