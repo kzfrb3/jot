@@ -80,6 +80,6 @@ I still miss her sweat
 stamp: 2022-03-12 07:40:26-06:00
 ---
 baby powder and  
-chanel no. 5 in the  
-dark alone with you
+chanel no. 5 alone  
+in the dark with you
 {end}
