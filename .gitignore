@@ -15,3 +15,5 @@ __pycache__/
 # Local Netlify folder
 .netlify
 node_modules
+package*.json
+
