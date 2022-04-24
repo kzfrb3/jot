@@ -83,3 +83,10 @@ baby powder and
 chanel no. 5 alone  
 in the dark with you
 {end}
+---
+stamp: 2022-04-24 00:08:18-05:00
+---
+a memory so  
+delectable that I can't  
+forget for one day
+{end}
