@@ -1,6 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -
 from datetime import datetime
+import secrets
 import shutil
 from argparse import ArgumentParser
 from pathlib import Path
@@ -12,25 +13,19 @@ from jinja2 import Template
 from livereload import Server
 from markdown import markdown
 
-# TODO: config file(?)
 POSTS_PER_PAGE = 3
-SITEURL = "https://pomes.ty-m.pw/"
+SITEURL = "https://thomas.yager-madden.com"
+TITLE = "~tym"
+DESCRIPTION = "thoughts of a minuscule part of the universe"
 
 
 def clean_build():
     """Remove build directory and recreate empty"""
     shutil.rmtree("site_build", ignore_errors=True)
+    src = Path("static")  # .glob("**/*"))
     build_dir = Path("site_build")
-    build_dir.mkdir(exist_ok=True)
+    shutil.copytree(src, build_dir)
     return build_dir
-
-
-def copy_static():
-    """Copy the static files into the build directory"""
-    src = list(Path("static").glob("**/*"))
-    for f in src:
-        dest = Path("site_build", f.name)
-        shutil.copy(f, dest)
 
 
 def get_posts():
@@ -47,15 +42,13 @@ def parse_post(post):
     """
     item = [i.strip() for i in post.split("---", 2)[1:3]]
     metadata = yaml.safe_load(item[0])
-    slug = item[1].split("\n")[0].strip().replace(" ", "-")
-    metadata["slug"] = slug
     content = markdown(item[1])
     parsed = dict(metadata=metadata, content=content)
     return parsed
 
 
 def sort_posts():
-    """Convert timestamps to UTC, and sort the posts list according to these values"""
+    """Convert post timestamps to UTC, and sort the posts list according to these values"""
     posts = get_posts()
     sorted_posts = []
     utc = pytz.timezone("UTC")
@@ -72,8 +65,15 @@ def sort_posts():
 def render(posts, page=0, total=0):
     """Given a list of parsed posts, render the HTML from the template file"""
     with open("template.j2") as template_file:
-        template = Template(template_file.read())
-    html = template.render(posts=posts, page=page, total=total)
+        template = Template(template_file.read(), trim_blocks=True, lstrip_blocks=True)
+    html = template.render(
+        posts=posts,
+        page=page,
+        total=total,
+        siteurl=SITEURL,
+        title=TITLE,
+        description=DESCRIPTION,
+    )
     return html
 
 
@@ -111,7 +111,7 @@ def build_individual(posts):
 def build_feed(posts):
     """Generate Atom feed file"""
     feed = Atom1Feed(
-        title="~tym smol pomes", description="", link=f"{SITEURL}/", language="en"
+        title="xqo dot wtf", description="", link=f"{SITEURL}/", language="en"
     )
     for post in posts:
         slug = post["metadata"]["slug"]
@@ -131,11 +131,10 @@ def build_feed(posts):
 
 def build():
     clean_build()
-    copy_static()
 
     posts = sort_posts()
     build_index(posts)
-    build_feed(posts)
+    # build_feed(posts)
     build_individual(posts)
     print("built!")
 
@@ -144,13 +143,15 @@ def serve():
     server = Server()
     server.watch("posts.md", build)
     server.watch("template.j2", build)
+    server.watch("static/style.css", build)
     server.serve(root="site_build")
 
 
 def post():
     utc = pytz.timezone("UTC")
+    token = secrets.token_hex(24)[:7]
     stamp = utc.localize(datetime.utcnow()).isoformat()
-    header = f"---\nstamp: {stamp}\n---\n\n{{end}}\n"
+    header = f"---\nslug: {token}\nstamp: {stamp}\n---\n\n{{end}}\n"
     with open("posts.md", "a") as post_file:
         post_file.write(header)
 

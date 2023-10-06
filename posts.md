@@ -1,92 +1,14 @@
 ---
-stamp: 2021-05-29T12:03:10-05:00
+slug: d59b357
+stamp: 2023-10-06T19:08:30.464382+00:00
+title: First post!
 ---
-intellect stringbean  
-piano trio hard bop  
-cold hungry summer
+I have said it before, but I think it bears repeating: I am like that person you might know whose houseplants always die from neglect, but with blogs. I don't think I can even remember how many I've started and abandoned, or how many different softwares I've used or tried in the process. Not to even _mention_ that starting a with-ironic-or-scare-quotes "blog" in the year of 2023 seems particularly foolish and mad. Like what even is the point? And I'm not sure I'm doing myself any favors by dusting off an [old static site generator script](https://github.com/tym-xqo/xqo.wtf) that I wrote myself to do it with.
 
-{end}
----
-stamp: 2021-05-29T21:06:06.233891+00:00
----
-excitement times nine  
-the waterfall at furnace  
-vegan sausage links
-{end}
----
-stamp: 2021-05-29T21:11:11.712816+00:00
----
-I walk to the hill  
-straight through the woods, check my watch  
-as the rain begins
-{end}
----
-stamp: 2021-05-30T04:47:49.257121+00:00
----
-green cacao beans  
-lazy sunday newspaper  
-microwave my heart 
-{end}
----
-stamp: 2021-06-03T04:52:26.499283+00:00
----
-everywhere you go  
-is a civil war battlefield  
-remember each day
-{end}
----
-stamp: 2021-06-16T04:27:31.259509+00:00
----
-emptiness over  
-foolish beauty unfolding  
-the stars in your eyes
-{end}
----
-stamp: 2021-06-16T12:45:55.574079+00:00
----
-nothing to give you  
-not even this blank paper  
-not even silence
-{end}
----
-stamp: 2021-07-01T08:18:54-05:00
----
-psychiatric goon  
-projections and triggers now  
-I am not confused
-{end}
----
-stamp: 2021-07-31T23:50:48Z
----
-out in the hot night  
-carnivore or caribou  
-emphasize your scars
-{end}
----
-stamp: 2021-08-16T20:11:57Z
----
-you are so confused  
-believe your conspiracies  
-loaded with virus
-{end}
----
-stamp: 2022-02-13T12:19:46-06:00
----
-pomegranate toes  
-a cunt like a nectarine  
-I still miss her sweat
-{end}
----
-stamp: 2022-03-12 07:40:26-06:00
----
-baby powder and  
-chanel no. 5 alone  
-in the dark with you
-{end}
----
-stamp: 2022-04-24 00:08:18-05:00
----
-a memory so  
-delectable that I can't  
-forget for one day
+But then again even after deleting my Facebook and Twitter accounts back in 2016, I am increasingly dismayed by big tech's controlling grasp on the public internet, and wanna do something new and indie on the internets. I've been having an OK time on Mastodon (as [@tym@tilde.zone](https://tilde.zone/@tym)), I've been trying to get a group going on [Wavelength](https://wavelength.app), and after all this time I still [reblog pics and stuff on Tumblr](https://mix.pabloedison.com) check out a limited number of subreddits from time to time, have a couple of Discord groups I visit, &c. All of that is fine I guess, -- and I value rather than feel bothered the fragmentation as opposed to the big social media monoliths -- but I'm still looking for an outlet, and want something indie, and that doesn't feel compromised or owned by someone else at its foundations. Not that there's any way out: if you're reading this, I've obviously decided to post it somewhere on the public internet. I'm not really set up to use my own hardware for that, so even this static HTML will need to run on some cloud server somewhere, and the code that builds it is already on Microsoft-owned GitHub, and the content is liable to be scraped and indexed and fed to any number of sociopathic large lanuguage models. At the bottom of all the utopian optimism of the early internet was the idea of _sharing_, and even that feels like it's all happening under corporate surveillance now. I've even considered doing some sort of [Gemini](https://geminiprotocol.net), um, thing, but obviously there's a learning curve with that, and plus it's maybe a bit _too_ small. Although I'm on the side of the small internet, I want my friends to be able to find this and read it, and not ALL of them are so extremely nerdy.
+
+Well, anyway, to try to be more hopeful, maybe this is a start. I'm happy that the build script still works, so I can just type this in a text editor as Markdown. I'm not sure how much or often I'll be posting, or what's on my mind to write about, but for a start I think some of the things I've been sharing with my little Wavelength group could be going here instead. I'd also like to add features to make it easier to include images in posts, or maybe even handle images AS posts, because I take a lot of photos especially when I'm walking around outside and even make drawings sometimes and I'd like to share all that here instead of Tumblr, but right now all it does is parsing posts out of a text file.
+
+I gotta admit it feels pretty okay to be typing this in my own favorite editor, I'm happy with my layout and stylesheet, and I'm hoping it will be just the first of many, for whatever any of it might turn out to be worth. Wish me luck!
+
 {end}
