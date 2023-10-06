@@ -36,7 +36,6 @@ main {
 header {
   color: #5c940d;
   padding-left: 1em;
-  margin-left: 1em;
 }
 
 header h1 {
@@ -63,13 +62,6 @@ footer {
   width: calc(100% - 3em);
   max-width: 600px;
 }
-
-/* @media all and (max-width:768px) {
-    .wrapper {
-        max-width: 77%;
-        padding: 1em;
-    }
-} */
 
 .post {
   margin-top: 1em;
