@@ -16,6 +16,3 @@ __pycache__/
 .netlify
 node_modules
 package*.json
-
-# Actual content
-posts.md
