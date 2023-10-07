@@ -73,6 +73,10 @@ footer {
   font-size: 1.2em;
 }
 
+.post img {
+    max-width: 87%;
+}
+
 .post-stamp,
 footer {
   font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
