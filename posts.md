@@ -12,3 +12,10 @@ Well, anyway, to try to be more hopeful, maybe this is a start. I'm happy that t
 I gotta admit it feels pretty okay to be typing this in my own favorite editor, I'm happy with my layout and stylesheet, and I'm hoping it will be just the first of many, for whatever any of it might turn out to be worth. Wish me luck!
 
 {end}
+---
+slug: ec8f0ae
+stamp: 2023-10-07T00:23:19.843374+00:00
+---
+A couple things I do really like about this home-grown set up: 1- It's easy to post just quick brief little things, and 2- posts don't have to have titles
+
+{end}
