@@ -25,7 +25,7 @@ stamp: 2023-10-07T16:00:27.872547+00:00
 ---
 OK, so posting images this way is pretty easy, and needed only one teensy code tweak and equally teensy change to folder structure/process: I added an `/images` subdirectory to the `static` folder, saved this jpeg in there, (relative-)linked it up using a [standard Markdown image tag](https://www.markdownguide.org/basic-syntax/#images-1), and adjusted CSS so that any image that's inside a `.post` div has a 87% max width. 
 
-![Cornelian cherry dogwood in Bahá'í temple garden 2023-10-07'](../images/cornelian-cherry-bahá'í-temple.jpg)
+![Cornelian cherry dogwood in Bahá'í temple garden 2023-10-07](../images/cornelian-cherry-bahá'í-temple.jpg)
 
 I think I'd like to add some logic to the build to automagically add some way to easily view the full-size image — maybe just a link, perhaps a lightbox modal if I'm feeling really fancy. And I still want a way to create like a little gallery with thumbnails. But even the current simple "skateboard" implementation is nice to have for now. If any of y'all wanna see this lovely Cornelian cherry tree I snapped this morning in the sunny Bahá'í temple garden larger, you can always right-click and open it in new tab. So there!
 
