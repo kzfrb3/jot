@@ -35,6 +35,7 @@ slug: 3d72ea5
 stamp: 2023-10-09T18:23:30.411496+00:00
 ---
 [I am in this picture and I don't like it](https://rakhim.org/honestly-undefined/19/)
+
 ![Blogging vs. blog setups chart — tools-don't-matter vs static gen basin](../images/rakhim-blog-setup-comic.jpg)
 
 {end}
