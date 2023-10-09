@@ -27,7 +27,7 @@ OK, so posting images this way is pretty easy, and needed only one teensy code t
 
 ![Cornelian cherry dogwood in Bahá'í temple garden 2023-10-07](../images/cornelian-cherry-bahá'í-temple.jpg)
 
-I think I'd like to add some logic to the build to automagically add some way to easily view the full-size image — maybe just a link, perhaps a lightbox modal if I'm feeling really fancy. And I still want a way to create like a little gallery with thumbnails. But even the current simple "skateboard" implementation is nice to have for now. If any of y'all wanna see this lovely Cornelian cherry tree I snapped this morning in the sunny Bahá'í temple garden larger, you can always right-click and open it in new tab. So there!
+I think I'd like to add some logic to the build to automagically add some way to easily view the full-size image — maybe just a link, perhaps a lightbox modal if I'm feeling really fancy. And I still want a way to create like a little gallery with thumbnails. But even the current simple "skateboard" implementation is nice to have for now. If any of y'all wanna see a larger view of this lovely Cornelian cherry tree I snapped this morning in the sunny Bahá'í temple garden, you can always right-click and open it in new tab. So there!
 
 {end}
 ---
