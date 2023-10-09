@@ -134,7 +134,7 @@ def build():
 
     posts = sort_posts()
     build_index(posts)
-    # build_feed(posts)
+    build_feed(posts)
     build_individual(posts)
     print("built!")
 
