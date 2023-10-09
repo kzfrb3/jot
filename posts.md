@@ -30,3 +30,11 @@ OK, so posting images this way is pretty easy, and needed only one teensy code t
 I think I'd like to add some logic to the build to automagically add some way to easily view the full-size image — maybe just a link, perhaps a lightbox modal if I'm feeling really fancy. And I still want a way to create like a little gallery with thumbnails. But even the current simple "skateboard" implementation is nice to have for now. If any of y'all wanna see this lovely Cornelian cherry tree I snapped this morning in the sunny Bahá'í temple garden larger, you can always right-click and open it in new tab. So there!
 
 {end}
+---
+slug: 3d72ea5
+stamp: 2023-10-09T18:23:30.411496+00:00
+---
+[I am in this picture and I don't like it](https://rakhim.org/honestly-undefined/19/)
+![Blogging vs. blog setups chart — tools-don't-matter vs static gen basin](../images/rakhim-blog-setup-comic.jpg)
+
+{end}
